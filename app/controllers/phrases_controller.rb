@@ -15,11 +15,18 @@ class PhrasesController < ApplicationController
         else 
             render json: {message: "Error could not be deleted"}
         end 
+    end 
 
     def destroy
         phrase = Phrase.find(params[:id])
         phrase.destroy
         render json: {message: "Successfully deleted #{phrase.content}"}
     end 
+
+    private
+    def phrase_params
+        params.require(:phrase).permit(:content, :image, :pinyin)
+    end 
+
 
 end

@@ -1,3 +1,3 @@
 class List < ApplicationRecord
-    has_many: phrases
+    has_many :phrases
 end

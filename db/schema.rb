@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(version: 2020_09_21_183352) do
     t.string "content"
     t.string "image"
     t.string "pinyin"
-    t.integer "lists_id"
+    t.integer "list_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["lists_id"], name: "index_phrases_on_lists_id"
+    t.index ["list_id"], name: "index_phrases_on_list_id"
   end
 
 end

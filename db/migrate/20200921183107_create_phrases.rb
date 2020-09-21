@@ -4,7 +4,7 @@ class CreatePhrases < ActiveRecord::Migration[6.0]
       t.string :content
       t.string :image
       t.string :pinyin
-      t.belongs_to :lists
+      t.belongs_to :list
 
       t.timestamps
     end

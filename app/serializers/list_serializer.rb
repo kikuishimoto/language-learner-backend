@@ -1,5 +1,4 @@
 class ListSerializer 
     include FastJsonapi::ObjectSerializer
-    attributes :name
-    has_many :phrases
+    attributes :name, :phrases
 end 

@@ -1,28 +1,23 @@
 class ListsController < ApplicationController
-    def index
+    def index 
         lists = List.all
-        render json: ListSerializer.new(lists, {include: [:phrases]})
+        render json: ListSerializer.new(lists)
     end 
 
-    def create
+    def create 
         list = List.new(list_params)
-        if list.save
-            render json: ListSerializer(list)
-        else 
-            render json: {message: "list can not be created"}
-        end 
+        list.save
+        render json: ListSerializer.new(list)
     end 
 
     def destroy
         list = List.find(params[:id])
-        list.destroy 
-        render json: {message: "#{list.name} has been deleted"}
+        list.destroy
+        render json: {message: "Successfully deleted #{list.name}"}
     end 
 
-    private 
-
+    private
     def list_params
-        params.require(:dog).permit(:name)
-    end 
-
+        params.require(:list).permit(:name)
+    end
 end
